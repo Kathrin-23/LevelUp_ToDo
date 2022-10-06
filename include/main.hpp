@@ -1,0 +1,8 @@
+//
+// Created by Dmitry Morozov on 6/10/22.
+//
+
+#ifndef LEVELUP_TODO_KATERIN_MAIN_MAIN_HPP
+#define LEVELUP_TODO_KATERIN_MAIN_MAIN_HPP
+
+#endif //LEVELUP_TODO_KATERIN_MAIN_MAIN_HPP
