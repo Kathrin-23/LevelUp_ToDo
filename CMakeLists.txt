@@ -13,6 +13,12 @@ set(SOURCES
     src/commands.cpp
     )
 
-add_executable(TODO ${SOURCES}) # Executable
+set(HEADERS
+    include/commands.hpp
+    include/main.hpp
+    )
+
+add_executable(TODO ${SOURCES} ${HEADERS}) # Executable
+#add_executable(demo src/type_demo.cpp) # Executable
 
 

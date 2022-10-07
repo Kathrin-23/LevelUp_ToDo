@@ -26,4 +26,8 @@ void list_todo() {
     std::cout << "Showing TODO list " << std::endl;
 }
 
+void size_todo(){
+
+    std::cout << " We have 5 TODO" << std::endl;
+}
 
