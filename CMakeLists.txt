@@ -4,6 +4,15 @@ project(TODO) #  Project NAME
 
 set(CMAKE_CXX_STANDARD 20) # C++ Standard
 
+find_package(SQLite3 REQUIRED)
+
+if (SQLite3_NOT_FOUND)
+    message(FATAL_ERROR "SQLite3 not found")
+endif ()
+
+include_directories(${CURSES_INCLUDE_DIR})
+
+
 include_directories(include) # Include Directories
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -19,6 +28,7 @@ set(HEADERS
     )
 
 add_executable(TODO ${SOURCES} ${HEADERS}) # Executable
-#add_executable(demo src/type_demo.cpp) # Executable
+
+target_link_libraries(TODO ${CURSES_LIBRARIES}) # Link Libraries
 
 
