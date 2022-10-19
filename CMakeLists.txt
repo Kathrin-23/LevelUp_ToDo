@@ -10,7 +10,7 @@ if (SQLite3_NOT_FOUND)
     message(FATAL_ERROR "SQLite3 not found")
 endif ()
 
-include_directories(${CURSES_INCLUDE_DIR})
+
 
 
 include_directories(include) # Include Directories
@@ -20,15 +20,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(SOURCES
     src/main.cpp
     src/commands.cpp
+    src/db.cpp
     )
 
 set(HEADERS
     include/commands.hpp
     include/main.hpp
+    include/db.hpp
     )
 
 add_executable(TODO ${SOURCES} ${HEADERS}) # Executable
 
-target_link_libraries(TODO ${CURSES_LIBRARIES}) # Link Libraries
+target_link_libraries(TODO sqlite3) # Link Libraries
 
 

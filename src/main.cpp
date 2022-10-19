@@ -4,6 +4,7 @@
 
 #include "main.hpp"
 #include "commands.hpp"
+#include "Db.hpp"
 
 #include <iostream>
 #include <map>
@@ -16,6 +17,8 @@ int main(int argc, char *argv[]) {
             {"edit", edit_todo},
             {"size" , size_todo}
     };
+
+    DB todo_db;
 
 
     if (argc < 2) {
