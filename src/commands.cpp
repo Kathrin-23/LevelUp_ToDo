@@ -1,7 +1,7 @@
 //
 // Created by Dmitry Morozov on 6/10/22.
 //
-
+//FIXME: CMake sqlite lib path : C:\sqlite
 #include "commands.hpp"
 #include "Db.hpp"
 #include "Helper.hpp"
@@ -24,7 +24,7 @@ void add_todo(std::string new_todo) {
     std::string table = "todo";
 
     DB::Sql_raw new_todo_raw = {
-            {"created",    getDateToStr(time(nullptr))},
+            {"created",     getDateToStr(time(nullptr))},
             {"todo_text",   new_todo},
             {"isCompleted", "false"}
     };
