@@ -4,6 +4,8 @@
 
 #include "commands.hpp"
 
+#include <sqlite3.h>
+
 #include <iostream>
 
 void add_todo() {
@@ -26,7 +28,7 @@ void list_todo() {
     std::cout << "Showing TODO list " << std::endl;
 }
 
-void size_todo(){
+void size_todo() {
 
     std::cout << " We have 5 TODO" << std::endl;
 }

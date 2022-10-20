@@ -17,4 +17,9 @@
 
 Type : CLI
 
+### Steps:
+
+-  Describe DB Structure
+-  Create DB
+
 
