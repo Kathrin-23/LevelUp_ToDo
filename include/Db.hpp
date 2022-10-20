@@ -5,14 +5,17 @@
 #ifndef LEVELUP_TODO_KATERIN_MAIN_DB_HPP
 #define LEVELUP_TODO_KATERIN_MAIN_DB_HPP
 
+#include <map>
 #include <sqlite3.h>
 #include <string>
 
 class DB {
 public:
-    DB();
 
+    DB();
     ~DB();
+
+    using Sql_raw = std::map <std::string, std::string>;
 
 
 private:
@@ -20,9 +23,11 @@ private:
 
     sqlite3 *db_handler;
 
+    void createDB();
+
     void closeDB();
 
-    void initDB();
+    void insert(std::string &,const  Sql_raw& );
 
     bool isDBExist();
 
