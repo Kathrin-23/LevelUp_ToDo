@@ -76,7 +76,7 @@ sqlite3 *DB::openDB() {
 
 void DB::insert(std::string &table, const DB::Sql_raw &data) {
 
-    std::string SQL_request = "insert into " + table + " ( ";
+    std::string SQL_request = "insert into " + table + " (";
 
     for (auto &[column, value]: data) {
         SQL_request += column + ", ";
@@ -85,14 +85,15 @@ void DB::insert(std::string &table, const DB::Sql_raw &data) {
     SQL_request.pop_back();
     SQL_request.pop_back();
 
-    SQL_request += ") values ( '";
+    SQL_request += ") values ('";
 
     for (auto &item: data) {
         SQL_request += item.second + "','";
     }
+    SQL_request.pop_back();
+    SQL_request.pop_back();
 
-    SQL_request.pop_back();
-    SQL_request.pop_back();
+    SQL_request += ");";
 
     char *ErrorMsg = nullptr;
     int result = sqlite3_exec(db_handler, SQL_request.c_str(), nullptr, nullptr, &ErrorMsg);
@@ -100,6 +101,8 @@ void DB::insert(std::string &table, const DB::Sql_raw &data) {
     if (result != SQLITE_OK) {
         std::cerr << "SQLITE INSERT ERROR : " << ErrorMsg << std::endl;
         sqlite3_free(ErrorMsg);
+    } else {
+        std::cout << "New TODO ADDED! " << std::endl;
     }
 
 }

@@ -21,12 +21,14 @@ set(SOURCES
     src/main.cpp
     src/commands.cpp
     src/db.cpp
+    src/Helper.cpp
     )
 
 set(HEADERS
     include/commands.hpp
     include/main.hpp
     include/db.hpp
+    include/helper.hpp
     )
 
 add_executable(TODO ${SOURCES} ${HEADERS}) # Executable

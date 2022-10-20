@@ -13,9 +13,12 @@ class DB {
 public:
 
     DB();
+
     ~DB();
 
-    using Sql_raw = std::map <std::string, std::string>;
+    using Sql_raw = std::map<std::string, std::string>;
+
+    void insert(std::string &, const Sql_raw &);
 
 
 private:
@@ -27,7 +30,6 @@ private:
 
     void closeDB();
 
-    void insert(std::string &,const  Sql_raw& );
 
     bool isDBExist();
 

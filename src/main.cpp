@@ -10,15 +10,14 @@
 #include <map>
 
 int main(int argc, char *argv[]) {
-    std::map<std::string, void (*)()> command_handler = {
+    std::map<std::string, void (*)( std::string)> command_handler = {
             {"add",  add_todo},
-            {"list", list_todo},
-            {"del",  del_todo},
-            {"edit", edit_todo},
-            {"size" , size_todo}
+//            {"list", list_todo},
+//            {"del",  del_todo},
+//            {"edit", edit_todo},
+//            {"size" , size_todo}
     };
 
-    DB todo_db;
 
 
     if (argc < 2) {
@@ -28,8 +27,18 @@ int main(int argc, char *argv[]) {
 
     std::string command = argv[1];
 
+    std::string argument ;
+
+    for ( int i = 2; i < argc; ++i){
+        argument += argv[i] ;
+        argument += " ";
+    }
+
+    argument.pop_back();
+
+
     if ( command_handler.find(command) != command_handler.end() ){
-        command_handler[command]();
+        command_handler[command]( argument);
     } else {
         std::cout << "Unknown command ! " << std::endl;
     }
